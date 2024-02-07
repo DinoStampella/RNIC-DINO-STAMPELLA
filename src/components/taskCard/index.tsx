@@ -1,16 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, View} from 'react-native';
 import styles from './styles';
 
 function TaskCard(props: TaskCardProps): React.JSX.Element {
-  const status: 'pending' | 'done' = props.state ? 'done' : 'pending';
+  const [status, setStatus] = useState<boolean>(props.state);
   return (
-    <View style={styles.wrapper}>
+    <View style={styles.wrapper} onTouchEnd={() => setStatus(!status)}>
       <View style={styles.text}>
         <Text style={styles.title}>{props.title}</Text>
         <Text style={styles.description}>{props.description}</Text>
       </View>
-      <View style={styles[status]} />
+      <View style={status ? styles.done : styles.pending} />
     </View>
   );
 }

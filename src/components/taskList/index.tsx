@@ -1,22 +1,35 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
+  AppState,
   FlatList,
   Keyboard,
   KeyboardAvoidingView,
   Platform,
   SafeAreaView,
-  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
 import TaskCard, {type TaskCardProps} from '../taskCard';
+import styles from './styles';
 
 function TaskList(): React.JSX.Element {
   const [tasks, setTasks] = useState<TaskCardProps[]>([]);
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
+  const descriptionInputRef = useRef<TextInput>(null);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', nextAppState => {
+      if (nextAppState === 'background') {
+        setTasks([]);
+      }
+    });
+    return () => {
+      subscription.remove();
+    };
+  }, []);
 
   const onPress = (titleValue: string, descriptionValue: string) => {
     setTitle('');
@@ -61,12 +74,17 @@ function TaskList(): React.JSX.Element {
             placeholder="Título"
             onChangeText={setTitle}
             value={title}
+            returnKeyType="next"
+            onSubmitEditing={() => descriptionInputRef.current?.focus()}
           />
           <TextInput
+            ref={descriptionInputRef}
             style={styles.descriptionInput}
-            placeholder="Descripción"
+            placeholder="Descripción (opcional)"
             onChangeText={setDescription}
             value={description}
+            returnKeyType="done"
+            onSubmitEditing={() => onPress(title, description)}
           />
           <TouchableOpacity
             style={styles.touchable}
@@ -78,46 +96,5 @@ function TaskList(): React.JSX.Element {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    justifyContent: 'space-between',
-  },
-  title: {
-    fontSize: 40,
-    textAlign: 'center',
-    margin: 10,
-  },
-  taskList: {flex: 1},
-  listEmptyComponent: {alignSelf: 'center', height: '100%'},
-  form: {padding: 10, alignItems: 'center'},
-  titleInput: {
-    height: 50,
-    width: '100%',
-    borderWidth: 1,
-    margin: 10,
-    padding: 5,
-    borderRadius: 10,
-  },
-  descriptionInput: {
-    height: 50,
-    width: '100%',
-    borderWidth: 1,
-    margin: 10,
-    padding: 5,
-    borderRadius: 10,
-  },
-  touchable: {
-    height: 50,
-    width: '60%',
-    borderWidth: 1,
-    margin: 10,
-    padding: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 10,
-  },
-});
 
 export default TaskList;
