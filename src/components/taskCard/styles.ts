@@ -1,39 +1,43 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
+
+const isIos = Platform.OS === 'ios';
 
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     margin: 5,
     borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingVertical: 10,
     paddingHorizontal: 20,
+    borderColor: '#3177b3',
+    backgroundColor: isIos ? '#dde4e6' : '#364950',
   },
-  text: {flexDirection: 'column'},
+  text: {flex: 1, gap: 5},
   title: {
     flex: 1,
     fontSize: 20,
+    color: isIos ? '#000' : '#fff',
+  },
+  titleDone: {
+    textDecorationLine: 'line-through',
+    flex: 1,
+    fontSize: 20,
+    color: isIos ? '#000' : '#fff',
   },
   description: {
     flex: 1,
     fontSize: 15,
+    color: isIos ? '#000' : '#fff',
   },
-  pending: {
-    marginRight: 20,
-    height: 15,
-    width: 15,
-    borderRadius: 50,
-    backgroundColor: 'grey',
-  },
-  done: {
-    marginRight: 20,
-    height: 15,
-    width: 15,
-    borderRadius: 50,
-    backgroundColor: 'green',
+  descriptionDone: {
+    flex: 1,
+    fontSize: 15,
+    textDecorationLine: 'line-through',
+    color: isIos ? '#000' : '#fff',
   },
 });
 

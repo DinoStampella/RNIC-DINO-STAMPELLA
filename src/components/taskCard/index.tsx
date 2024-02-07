@@ -7,10 +7,15 @@ function TaskCard(props: TaskCardProps): React.JSX.Element {
   return (
     <View style={styles.wrapper} onTouchEnd={() => setStatus(!status)}>
       <View style={styles.text}>
-        <Text style={styles.title}>{props.title}</Text>
-        <Text style={styles.description}>{props.description}</Text>
+        <Text style={status ? styles.titleDone : styles.title}>
+          {props.title}
+        </Text>
+        <Text
+          style={status ? styles.descriptionDone : styles.description}
+          numberOfLines={2}>
+          {props.description}
+        </Text>
       </View>
-      <View style={status ? styles.done : styles.pending} />
     </View>
   );
 }

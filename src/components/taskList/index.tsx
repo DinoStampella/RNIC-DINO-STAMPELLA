@@ -70,7 +70,7 @@ function TaskList(): React.JSX.Element {
         />
         <View style={styles.form}>
           <TextInput
-            style={styles.titleInput}
+            style={styles.input}
             placeholder="Título"
             onChangeText={setTitle}
             value={title}
@@ -79,7 +79,7 @@ function TaskList(): React.JSX.Element {
           />
           <TextInput
             ref={descriptionInputRef}
-            style={styles.descriptionInput}
+            style={styles.input}
             placeholder="Descripción (opcional)"
             onChangeText={setDescription}
             value={description}
@@ -89,7 +89,7 @@ function TaskList(): React.JSX.Element {
           <TouchableOpacity
             style={styles.touchable}
             onPress={() => onPress(title, description)}>
-            <Text>Create task</Text>
+            <Text style={styles.touchableText}>Create task</Text>
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
