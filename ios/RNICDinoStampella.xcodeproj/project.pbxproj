@@ -11,6 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		53797D302B78FE9800069359 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53797D2F2B78FE9800069359 /* BootSplash.storyboard */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A90F64225B153C84A045025A /* libPods-RNICDinoStampella-RNICDinoStampellaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2340F239CBEBC7DE466A54B2 /* libPods-RNICDinoStampella-RNICDinoStampellaTests.a */; };
 		B7B5B78F96C1DFA00F6C978E /* libPods-RNICDinoStampella.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8BBBA7D216F58519E09920 /* libPods-RNICDinoStampella.a */; };
@@ -40,6 +41,7 @@
 		193ADE26A231AEBE72213391 /* Pods-RNICDinoStampella-RNICDinoStampellaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNICDinoStampella-RNICDinoStampellaTests.debug.xcconfig"; path = "Target Support Files/Pods-RNICDinoStampella-RNICDinoStampellaTests/Pods-RNICDinoStampella-RNICDinoStampellaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2340F239CBEBC7DE466A54B2 /* libPods-RNICDinoStampella-RNICDinoStampellaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNICDinoStampella-RNICDinoStampellaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		443E5697165D78DE83F8AA14 /* Pods-RNICDinoStampella-RNICDinoStampellaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNICDinoStampella-RNICDinoStampellaTests.release.xcconfig"; path = "Target Support Files/Pods-RNICDinoStampella-RNICDinoStampellaTests/Pods-RNICDinoStampella-RNICDinoStampellaTests.release.xcconfig"; sourceTree = "<group>"; };
+		53797D2F2B78FE9800069359 /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = RNICDinoStampella/BootSplash.storyboard; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RNICDinoStampella/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		981B62B9AC547BD2E0115425 /* Pods-RNICDinoStampella.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNICDinoStampella.debug.xcconfig"; path = "Target Support Files/Pods-RNICDinoStampella/Pods-RNICDinoStampella.debug.xcconfig"; sourceTree = "<group>"; };
 		BE8BBBA7D216F58519E09920 /* libPods-RNICDinoStampella.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNICDinoStampella.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +88,7 @@
 		13B07FAE1A68108700A75B9A /* RNICDinoStampella */ = {
 			isa = PBXGroup;
 			children = (
+				53797D2F2B78FE9800069359 /* BootSplash.storyboard */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -241,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53797D302B78FE9800069359 /* BootSplash.storyboard in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
