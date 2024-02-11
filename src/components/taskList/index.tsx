@@ -1,18 +1,17 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {
-  AppState,
-  FlatList,
-  Keyboard,
-  KeyboardAvoidingView,
-  Platform,
-  SafeAreaView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {AppState, Keyboard, Platform, TextInput} from 'react-native';
 import TaskCard, {type TaskCardProps} from '../taskCard';
-import styles from './styles';
+import {
+  Wrapper,
+  KeyboardWrapper,
+  TaskListTitle,
+  Form,
+  FormInput,
+  Button,
+  TextButton,
+  CardsFlatList,
+  ListEmptyComponent,
+} from '../StyledScomponents/styles';
 
 function TaskList(): React.JSX.Element {
   const [tasks, setTasks] = useState<TaskCardProps[]>([]);
@@ -45,18 +44,13 @@ function TaskList(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={styles.wrapper}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.wrapper}>
-        <Text style={styles.title}>Lista de tareas</Text>
-        <FlatList
-          style={styles.taskList}
+    <Wrapper>
+      <KeyboardWrapper behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        <TaskListTitle>Lista de tareas</TaskListTitle>
+        <CardsFlatList
           data={tasks}
           ListEmptyComponent={
-            <Text style={styles.listEmptyComponent}>
-              No hay tareas pendiente
-            </Text>
+            <ListEmptyComponent>No hay tareas pendientes</ListEmptyComponent>
           }
           renderItem={item => {
             return (
@@ -68,32 +62,28 @@ function TaskList(): React.JSX.Element {
             );
           }}
         />
-        <View style={styles.form}>
-          <TextInput
-            style={styles.input}
+        <Form>
+          <FormInput
             placeholder="Título"
             onChangeText={setTitle}
             value={title}
             returnKeyType="next"
             onSubmitEditing={() => descriptionInputRef.current?.focus()}
           />
-          <TextInput
+          <FormInput
             ref={descriptionInputRef}
-            style={styles.input}
             placeholder="Descripción (opcional)"
             onChangeText={setDescription}
             value={description}
             returnKeyType="done"
             onSubmitEditing={() => onPress(title, description)}
           />
-          <TouchableOpacity
-            style={styles.touchable}
-            onPress={() => onPress(title, description)}>
-            <Text style={styles.touchableText}>Create task</Text>
-          </TouchableOpacity>
-        </View>
-      </KeyboardAvoidingView>
-    </SafeAreaView>
+          <Button onPress={() => onPress(title, description)}>
+            <TextButton>Create task</TextButton>
+          </Button>
+        </Form>
+      </KeyboardWrapper>
+    </Wrapper>
   );
 }
 
