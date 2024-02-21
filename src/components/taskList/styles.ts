@@ -60,30 +60,3 @@ export const Button = styled.TouchableOpacity`
 export const TextButton = styled.Text`
   color: #fcfeff;
 `;
-
-export const TaskCardContainer = styled.View`
-  flex: 1;
-  margin: 5px;
-  border-width: 1px;
-  border-radius: 10px;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  border-color: #3177b3;
-  background-color: #dde4e6;
-`;
-
-export const TextContainer = styled.View`
-  flex: 1;
-  gap: 5px;
-`;
-
-export const CardTitle = styled.Text`
-  font-size: 20px;
-  color: #000;
-`;
-
-export const CardSubtitle = styled(CardTitle)`
-  font-size: 15px;
-`;

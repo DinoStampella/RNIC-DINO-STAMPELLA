@@ -11,7 +11,7 @@ import {
   TextButton,
   CardsFlatList,
   ListEmptyComponent,
-} from '../StyledScomponents/styles';
+} from './styles';
 
 function TaskList(): React.JSX.Element {
   const [tasks, setTasks] = useState<TaskCardProps[]>([]);
@@ -39,7 +39,12 @@ function TaskList(): React.JSX.Element {
     }
     setTasks([
       ...tasks,
-      {title: titleValue, description: descriptionValue, state: false},
+      {
+        title: titleValue,
+        description: descriptionValue,
+        state: false,
+        index: 0,
+      },
     ]);
   };
 
@@ -58,6 +63,7 @@ function TaskList(): React.JSX.Element {
                 title={item.item.title}
                 description={item.item.description}
                 state={item.item.state}
+                index={item.index}
               />
             );
           }}
